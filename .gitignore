@@ -1,0 +1,11 @@
+# Data
+data/
+
+# Logs
+*.log
+logs/
+
+# Temp files
+tmp/
+*.tmp
+*.out
