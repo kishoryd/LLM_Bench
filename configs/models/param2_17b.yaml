@@ -1,0 +1,19 @@
+name: "Param2-17B-A2.4B-Thinking"
+path: "/home/kishor/LLM_Bench/data/Param2-17B"
+max_context: 4096
+default_dtype: "bf16"
+trust_remote_code: true
+
+# Model-specific prompt seeds for benchmarking
+prompts:
+  bharatgen: >
+    The BharatGen initiative is a government-backed research programme
+    aimed at developing large-scale foundational AI models rooted in
+    Indian languages, culture, and knowledge systems.
+  moe: >
+    Mixture-of-Experts architectures improve the efficiency of large
+    language models by activating only a subset of parameters for each
+    input token.
+  history: >
+    The history of artificial intelligence spans decades of research,
+    beginning with the Dartmouth Conference of 1956.

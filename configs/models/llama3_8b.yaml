@@ -1,0 +1,5 @@
+name: "Llama-3-8B-Instruct"
+path: "/path/to/llama-3-8b"
+max_context: 8192
+default_dtype: "bf16"
+trust_remote_code: false

@@ -1,0 +1,16 @@
+name: "vllm"
+type: "vllm"
+description: "vLLM — paged attention, continuous batching"
+
+server:
+  host: "localhost"
+  port: 8000
+  api_path: "/v1/completions"
+
+engine:
+  tensor_parallel_size: 1
+  max_num_seqs: 256
+  gpu_memory_utilization: 0.90
+  enforce_eager: false        # set true to disable CUDA graphs
+  quantization: null          # awq, gptq, squeezellm, null
+  dtype: "auto"

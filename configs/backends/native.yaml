@@ -1,0 +1,9 @@
+name: "native"
+type: "native"
+description: "Direct HuggingFace transformers inference — no server"
+
+optimizations:
+  flash_attention: true       # auto-fallback to SDPA if unsupported
+  quantization: "none"        # none, int8, int4
+  use_cache: true             # KV cache
+  compile: false              # torch.compile (experimental)

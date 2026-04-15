@@ -1,0 +1,29 @@
+# ─── Main Benchmark Configuration ──────────────────────────────
+
+benchmark:
+  warmup_runs: 1
+  measure_runs: 3
+  batch_sizes: [1, 2, 4, 8, 16, 32]
+
+generation:
+  temperature: 0.7
+  top_k: 50
+  top_p: 0.9
+
+context_tiers:
+  - label: "short (~256 tok)"
+    target_input: 220
+    max_new_tokens: 128
+  - label: "medium (~1024 tok)"
+    target_input: 980
+    max_new_tokens: 256
+  - label: "long (~2048 tok)"
+    target_input: 1980
+    max_new_tokens: 256
+  - label: "near-limit (~3584 tok)"
+    target_input: 3500
+    max_new_tokens: 128
+
+output:
+  format: "json"            # json, csv
+  dir: "results/"

@@ -1,0 +1,8 @@
+name: "ollama"
+type: "ollama"
+description: "Ollama — local model runner via REST API"
+
+server:
+  host: "localhost"
+  port: 11434
+  api_path: "/api/generate"

@@ -1,0 +1,28 @@
+name: "pytorch_profiler"
+type: "pytorch"
+description: "PyTorch Profiler — operator-level breakdown"
+
+enabled: true
+output_dir: "results/torch_profiler/"
+
+schedule:
+  wait: 1                        # skip first N steps
+  warmup: 1                     # warmup steps (not recorded)
+  active: 3                     # steps to record
+  repeat: 1
+
+activities:
+  - "cpu"
+  - "cuda"
+
+record_shapes: true
+profile_memory: true
+with_stack: true
+with_flops: true
+
+# Export Chrome trace for chrome://tracing
+export_chrome_trace: true
+
+# Export for TensorBoard
+export_tensorboard: true
+tensorboard_dir: "results/tb_logs/"

@@ -1,0 +1,11 @@
+name: "triton"
+type: "triton"
+description: "NVIDIA Triton Inference Server"
+
+server:
+  host: "localhost"
+  grpc_port: 8001
+  http_port: 8000
+
+model_repository: "/path/to/triton_models"
+backend: "vllm"               # vllm or tensorrt_llm

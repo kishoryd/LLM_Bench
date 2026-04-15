@@ -1,0 +1,13 @@
+name: "sglang"
+type: "sglang"
+description: "SGLang — RadixAttention, continuous batching"
+
+server:
+  host: "localhost"
+  port: 30000
+  api_path: "/generate"
+
+engine:
+  tensor_parallel_size: 1
+  mem_fraction: 0.90
+  dtype: "auto"
