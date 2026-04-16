@@ -1,0 +1,250 @@
+[
+  {
+    "num_gpus": 1,
+    "load_config": {
+      "attn_impl": "flash_attention_2",
+      "dtype": "torch.bfloat16",
+      "quantize": "none",
+      "load_time_s": 10.6
+    },
+    "tiers": [
+      {
+        "label": "short  (~256 tok)",
+        "target_input": 220,
+        "max_new_tokens": 128,
+        "batch_sweeps": [
+          {
+            "batch_size": 1,
+            "oom": false,
+            "input_tokens": 257,
+            "output_tokens_avg": 128.0,
+            "ttft_avg_s": 1.9786,
+            "ttft_std_s": 0.0133,
+            "e2e_avg_s": 38.928,
+            "e2e_std_s": 0.0225,
+            "decode_avg_s": 36.9494,
+            "tok_per_s_avg": 3.4633,
+            "tok_per_s_std": 0.0058,
+            "gpu_memory": {
+              "GPU:0": {
+                "allocated_GB": 25.85,
+                "reserved_GB": 25.91,
+                "total_GB": 31.47
+              }
+            },
+            "gpu_util": {
+              "GPU:0": {
+                "avg_util_pct": 55.1,
+                "max_util_pct": 64
+              }
+            }
+          },
+          {
+            "batch_size": 2,
+            "oom": false,
+            "input_tokens": 257,
+            "output_tokens_avg": 128.0,
+            "ttft_avg_s": 1.9891,
+            "ttft_std_s": 0.0102,
+            "e2e_avg_s": 56.5593,
+            "e2e_std_s": 1.0397,
+            "decode_avg_s": 54.5702,
+            "tok_per_s_avg": 4.6933,
+            "tok_per_s_std": 0.0862,
+            "gpu_memory": {
+              "GPU:0": {
+                "allocated_GB": 26.01,
+                "reserved_GB": 26.19,
+                "total_GB": 31.47
+              }
+            },
+            "gpu_util": {
+              "GPU:0": {
+                "avg_util_pct": 55.6,
+                "max_util_pct": 63
+              }
+            }
+          },
+          {
+            "batch_size": 4,
+            "oom": false,
+            "input_tokens": 257,
+            "output_tokens_avg": 128.0,
+            "ttft_avg_s": 2.0178,
+            "ttft_std_s": 0.009,
+            "e2e_avg_s": 81.1011,
+            "e2e_std_s": 2.7835,
+            "decode_avg_s": 79.0833,
+            "tok_per_s_avg": 6.48,
+            "tok_per_s_std": 0.2352,
+            "gpu_memory": {
+              "GPU:0": {
+                "allocated_GB": 26.33,
+                "reserved_GB": 26.62,
+                "total_GB": 31.47
+              }
+            },
+            "gpu_util": {
+              "GPU:0": {
+                "avg_util_pct": 53.1,
+                "max_util_pct": 64
+              }
+            }
+          },
+          {
+            "batch_size": 8,
+            "oom": false,
+            "input_tokens": 257,
+            "output_tokens_avg": 128.0,
+            "ttft_avg_s": 2.042,
+            "ttft_std_s": 0.0058,
+            "e2e_avg_s": 119.1006,
+            "e2e_std_s": 1.0062,
+            "decode_avg_s": 117.0586,
+            "tok_per_s_avg": 8.75,
+            "tok_per_s_std": 0.0755,
+            "gpu_memory": {
+              "GPU:0": {
+                "allocated_GB": 26.96,
+                "reserved_GB": 27.21,
+                "total_GB": 31.47
+              }
+            },
+            "gpu_util": {
+              "GPU:0": {
+                "avg_util_pct": 57.7,
+                "max_util_pct": 64
+              }
+            }
+          },
+          {
+            "batch_size": 16,
+            "oom": true,
+            "phase": "warmup"
+          }
+        ]
+      },
+      {
+        "label": "medium (~1024 tok)",
+        "target_input": 980,
+        "max_new_tokens": 256,
+        "batch_sweeps": [
+          {
+            "batch_size": 1,
+            "oom": false,
+            "input_tokens": 1022,
+            "output_tokens_avg": 256.0,
+            "ttft_avg_s": 2.0032,
+            "ttft_std_s": 0.0115,
+            "e2e_avg_s": 76.3024,
+            "e2e_std_s": 0.0243,
+            "decode_avg_s": 74.2992,
+            "tok_per_s_avg": 3.4467,
+            "tok_per_s_std": 0.0058,
+            "gpu_memory": {
+              "GPU:0": {
+                "allocated_GB": 26.32,
+                "reserved_GB": 26.42,
+                "total_GB": 31.47
+              }
+            },
+            "gpu_util": {
+              "GPU:0": {
+                "avg_util_pct": 54.7,
+                "max_util_pct": 64
+              }
+            }
+          },
+          {
+            "batch_size": 2,
+            "oom": false,
+            "input_tokens": 1022,
+            "output_tokens_avg": 256.0,
+            "ttft_avg_s": 2.0328,
+            "ttft_std_s": 0.0048,
+            "e2e_avg_s": 111.3697,
+            "e2e_std_s": 1.9949,
+            "decode_avg_s": 109.3369,
+            "tok_per_s_avg": 4.6833,
+            "tok_per_s_std": 0.0874,
+            "gpu_memory": {
+              "GPU:0": {
+                "allocated_GB": 26.95,
+                "reserved_GB": 27.38,
+                "total_GB": 31.47
+              }
+            },
+            "gpu_util": {
+              "GPU:0": {
+                "avg_util_pct": 56.6,
+                "max_util_pct": 64
+              }
+            }
+          },
+          {
+            "batch_size": 4,
+            "oom": true,
+            "phase": "warmup"
+          }
+        ]
+      },
+      {
+        "label": "long   (~2048 tok)",
+        "target_input": 1980,
+        "max_new_tokens": 256,
+        "batch_sweeps": [
+          {
+            "batch_size": 1,
+            "oom": false,
+            "input_tokens": 2024,
+            "output_tokens_avg": 256.0,
+            "ttft_avg_s": 2.0842,
+            "ttft_std_s": 0.009,
+            "e2e_avg_s": 76.3724,
+            "e2e_std_s": 0.0685,
+            "decode_avg_s": 74.2882,
+            "tok_per_s_avg": 3.4467,
+            "tok_per_s_std": 0.0058,
+            "gpu_memory": {
+              "GPU:0": {
+                "allocated_GB": 26.94,
+                "reserved_GB": 27.39,
+                "total_GB": 31.47
+              }
+            },
+            "gpu_util": {
+              "GPU:0": {
+                "avg_util_pct": 54.6,
+                "max_util_pct": 63
+              }
+            }
+          },
+          {
+            "batch_size": 2,
+            "oom": true,
+            "phase": "warmup"
+          }
+        ]
+      },
+      {
+        "label": "near-limit (~3584 tok)",
+        "target_input": 3500,
+        "max_new_tokens": 128,
+        "batch_sweeps": [
+          {
+            "batch_size": 1,
+            "oom": true,
+            "phase": "warmup"
+          }
+        ]
+      }
+    ],
+    "gpu_memory_final": {
+      "GPU:0": {
+        "allocated_GB": 25.69,
+        "reserved_GB": 29.86,
+        "total_GB": 31.47
+      }
+    }
+  }
+]
