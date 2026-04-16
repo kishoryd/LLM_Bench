@@ -6,7 +6,7 @@ import os
 from contextlib import contextmanager
 
 import torch
-from torch.profiler import profile, record_function, ProfilerActivity, schedule
+from torch.profiler import profile, record_function, ProfilerActivity
 
 from src.profilers.base import BaseProfiler
 
@@ -56,51 +56,52 @@ class PyTorchProfiler(BaseProfiler):
 
         prof = profile(
             activities=self.activities,
-            schedule=schedule(
-                wait=self.wait,
-                warmup=self.warmup,
-                active=self.active,
-                repeat=self.repeat,
-            ),
             record_shapes=self.record_shapes,
             profile_memory=self.profile_memory,
             with_stack=self.with_stack,
             with_flops=self.with_flops,
-            on_trace_ready=self._trace_handler(run_name) if self.export_tb else None,
         )
 
         with prof as p:
             with record_function(run_name):
                 yield p
-            p.step()
+            # Sync GPU so all CUDA kernels are captured before the profiler stops
+            if torch.cuda.is_available():
+                torch.cuda.synchronize()
 
         self._last_profiler = p
-
-        # Chrome trace export
-        if self.export_chrome:
-            trace_path = os.path.join(self.output_dir, f"{run_name}_trace.json")
-            p.export_chrome_trace(trace_path)
-            self._traces.append(trace_path)
-            print(f"    📊 Chrome trace: {trace_path}")
+        self._on_trace_ready(run_name)(p)
 
         # Print summary
         print(f"\n    ── PyTorch Profiler Summary ({run_name}) ──")
         print(p.key_averages().table(sort_by="cuda_time_total", row_limit=15))
 
-    def _trace_handler(self, run_name: str):
-        """Return a handler for TensorBoard export."""
+    def _on_trace_ready(self, run_name: str):
+        """Export Chrome trace once; optionally symlink it for TensorBoard."""
+        import shutil
+
         def handler(p):
-            os.makedirs(self.tb_dir, exist_ok=True)
-            p.export_chrome_trace(os.path.join(self.tb_dir, f"{run_name}.json"))
+            os.makedirs(self.output_dir, exist_ok=True)
+            trace_path = os.path.join(self.output_dir, f"{run_name}_trace.json")
+            p.export_chrome_trace(trace_path)
+            self._traces.append(trace_path)
+            print(f"    Chrome trace: {trace_path}")
+            if self.export_tb:
+                os.makedirs(self.tb_dir, exist_ok=True)
+                tb_path = os.path.join(self.tb_dir, f"{run_name}.json")
+                shutil.copy2(trace_path, tb_path)
         return handler
 
     def export(self, output_dir: str):
-        """Export any remaining traces."""
-        if self._last_profiler and self.export_chrome:
-            path = os.path.join(output_dir, "final_trace.json")
-            os.makedirs(output_dir, exist_ok=True)
-            self._last_profiler.export_chrome_trace(path)
-            print(f"  📊 Final trace exported: {path}")
+        """Copy the last trace to output_dir if not already there."""
+        if self._traces:
+            import shutil
+            src = self._traces[-1]
+            dst = os.path.join(output_dir, "final_trace.json")
+            if os.path.abspath(src) != os.path.abspath(dst):
+                os.makedirs(output_dir, exist_ok=True)
+                shutil.copy2(src, dst)
+                print(f"  Final trace exported: {dst}")
 
     def get_summary_table(self, sort_by: str = "cuda_time_total", row_limit: int = 20) -> str:
         """Return the profiler summary as a string."""

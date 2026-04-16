@@ -6,9 +6,9 @@ enabled: true
 output_dir: "results/torch_profiler/"
 
 schedule:
-  wait: 1                        # skip first N steps
-  warmup: 1                     # warmup steps (not recorded)
-  active: 3                     # steps to record
+  wait: 0                        # skip first N steps
+  warmup: 1                      # warmup steps (not recorded)
+  active: 2                      # steps to record
   repeat: 1
 
 activities:

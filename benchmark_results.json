@@ -1,0 +1,453 @@
+[
+  {
+    "num_gpus": 1,
+    "load_config": {
+      "attn_impl": "sdpa",
+      "dtype": "torch.bfloat16",
+      "quantize": "int4",
+      "load_time_s": 41.63
+    },
+    "tiers": [
+      {
+        "label": "short  (~256 tok)",
+        "target_input": 220,
+        "max_new_tokens": 128,
+        "batch_sweeps": [
+          {
+            "batch_size": 1,
+            "oom": false,
+            "input_tokens": 257,
+            "output_tokens_avg": 128.0,
+            "ttft_avg_s": 0.9949,
+            "ttft_std_s": 0.0141,
+            "e2e_avg_s": 15.071,
+            "e2e_std_s": 0.0215,
+            "decode_avg_s": 14.0761,
+            "tok_per_s_avg": 9.0933,
+            "tok_per_s_std": 0.0208,
+            "gpu_memory": {
+              "GPU:0": {
+                "allocated_GB": 8.79,
+                "reserved_GB": 15.27,
+                "total_GB": 31.47
+              }
+            },
+            "gpu_util": {
+              "GPU:0": {
+                "avg_util_pct": 14.5,
+                "max_util_pct": 19
+              }
+            }
+          },
+          {
+            "batch_size": 2,
+            "oom": false,
+            "input_tokens": 257,
+            "output_tokens_avg": 128.0,
+            "ttft_avg_s": 1.0003,
+            "ttft_std_s": 0.0107,
+            "e2e_avg_s": 22.9868,
+            "e2e_std_s": 0.2808,
+            "decode_avg_s": 21.9864,
+            "tok_per_s_avg": 11.6467,
+            "tok_per_s_std": 0.155,
+            "gpu_memory": {
+              "GPU:0": {
+                "allocated_GB": 8.95,
+                "reserved_GB": 15.31,
+                "total_GB": 31.47
+              }
+            },
+            "gpu_util": {
+              "GPU:0": {
+                "avg_util_pct": 16.2,
+                "max_util_pct": 20
+              }
+            }
+          },
+          {
+            "batch_size": 4,
+            "oom": false,
+            "input_tokens": 257,
+            "output_tokens_avg": 128.0,
+            "ttft_avg_s": 0.9961,
+            "ttft_std_s": 0.0134,
+            "e2e_avg_s": 35.0413,
+            "e2e_std_s": 0.9495,
+            "decode_avg_s": 34.0452,
+            "tok_per_s_avg": 15.0467,
+            "tok_per_s_std": 0.4252,
+            "gpu_memory": {
+              "GPU:0": {
+                "allocated_GB": 9.27,
+                "reserved_GB": 15.31,
+                "total_GB": 31.47
+              }
+            },
+            "gpu_util": {
+              "GPU:0": {
+                "avg_util_pct": 15.9,
+                "max_util_pct": 22
+              }
+            }
+          },
+          {
+            "batch_size": 8,
+            "oom": false,
+            "input_tokens": 257,
+            "output_tokens_avg": 128.0,
+            "ttft_avg_s": 1.0126,
+            "ttft_std_s": 0.0062,
+            "e2e_avg_s": 52.2568,
+            "e2e_std_s": 1.4699,
+            "decode_avg_s": 51.2442,
+            "tok_per_s_avg": 19.9933,
+            "tok_per_s_std": 0.5845,
+            "gpu_memory": {
+              "GPU:0": {
+                "allocated_GB": 9.9,
+                "reserved_GB": 15.31,
+                "total_GB": 31.47
+              }
+            },
+            "gpu_util": {
+              "GPU:0": {
+                "avg_util_pct": 15.8,
+                "max_util_pct": 27
+              }
+            }
+          },
+          {
+            "batch_size": 16,
+            "oom": false,
+            "input_tokens": 257,
+            "output_tokens_avg": 128.0,
+            "ttft_avg_s": 1.092,
+            "ttft_std_s": 0.0056,
+            "e2e_avg_s": 73.1656,
+            "e2e_std_s": 0.7156,
+            "decode_avg_s": 72.0735,
+            "tok_per_s_avg": 28.4133,
+            "tok_per_s_std": 0.2801,
+            "gpu_memory": {
+              "GPU:0": {
+                "allocated_GB": 11.17,
+                "reserved_GB": 15.31,
+                "total_GB": 31.47
+              }
+            },
+            "gpu_util": {
+              "GPU:0": {
+                "avg_util_pct": 17.0,
+                "max_util_pct": 36
+              }
+            }
+          },
+          {
+            "batch_size": 32,
+            "oom": false,
+            "input_tokens": 257,
+            "output_tokens_avg": 128.0,
+            "ttft_avg_s": 1.3329,
+            "ttft_std_s": 0.0037,
+            "e2e_avg_s": 93.1754,
+            "e2e_std_s": 1.1129,
+            "decode_avg_s": 91.8425,
+            "tok_per_s_avg": 44.6033,
+            "tok_per_s_std": 0.5346,
+            "gpu_memory": {
+              "GPU:0": {
+                "allocated_GB": 13.71,
+                "reserved_GB": 23.16,
+                "total_GB": 31.47
+              }
+            },
+            "gpu_util": {
+              "GPU:0": {
+                "avg_util_pct": 19.2,
+                "max_util_pct": 57
+              }
+            }
+          }
+        ]
+      },
+      {
+        "label": "medium (~1024 tok)",
+        "target_input": 980,
+        "max_new_tokens": 256,
+        "batch_sweeps": [
+          {
+            "batch_size": 1,
+            "oom": false,
+            "input_tokens": 1022,
+            "output_tokens_avg": 256.0,
+            "ttft_avg_s": 1.0009,
+            "ttft_std_s": 0.0115,
+            "e2e_avg_s": 29.0239,
+            "e2e_std_s": 0.0934,
+            "decode_avg_s": 28.023,
+            "tok_per_s_avg": 9.1367,
+            "tok_per_s_std": 0.0351,
+            "gpu_memory": {
+              "GPU:0": {
+                "allocated_GB": 9.26,
+                "reserved_GB": 23.16,
+                "total_GB": 31.47
+              }
+            },
+            "gpu_util": {
+              "GPU:0": {
+                "avg_util_pct": 14.8,
+                "max_util_pct": 22
+              }
+            }
+          },
+          {
+            "batch_size": 2,
+            "oom": false,
+            "input_tokens": 1022,
+            "output_tokens_avg": 256.0,
+            "ttft_avg_s": 1.038,
+            "ttft_std_s": 0.0186,
+            "e2e_avg_s": 45.1268,
+            "e2e_std_s": 0.2508,
+            "decode_avg_s": 44.0887,
+            "tok_per_s_avg": 11.6133,
+            "tok_per_s_std": 0.0709,
+            "gpu_memory": {
+              "GPU:0": {
+                "allocated_GB": 9.89,
+                "reserved_GB": 23.16,
+                "total_GB": 31.47
+              }
+            },
+            "gpu_util": {
+              "GPU:0": {
+                "avg_util_pct": 17.0,
+                "max_util_pct": 26
+              }
+            }
+          },
+          {
+            "batch_size": 4,
+            "oom": false,
+            "input_tokens": 1022,
+            "output_tokens_avg": 256.0,
+            "ttft_avg_s": 1.1223,
+            "ttft_std_s": 0.011,
+            "e2e_avg_s": 70.4143,
+            "e2e_std_s": 0.2811,
+            "decode_avg_s": 69.292,
+            "tok_per_s_avg": 14.78,
+            "tok_per_s_std": 0.0624,
+            "gpu_memory": {
+              "GPU:0": {
+                "allocated_GB": 11.16,
+                "reserved_GB": 23.16,
+                "total_GB": 31.47
+              }
+            },
+            "gpu_util": {
+              "GPU:0": {
+                "avg_util_pct": 16.3,
+                "max_util_pct": 36
+              }
+            }
+          },
+          {
+            "batch_size": 8,
+            "oom": false,
+            "input_tokens": 1022,
+            "output_tokens_avg": 256.0,
+            "ttft_avg_s": 1.3542,
+            "ttft_std_s": 0.0128,
+            "e2e_avg_s": 107.9224,
+            "e2e_std_s": 0.8761,
+            "decode_avg_s": 106.5682,
+            "tok_per_s_avg": 19.2167,
+            "tok_per_s_std": 0.1553,
+            "gpu_memory": {
+              "GPU:0": {
+                "allocated_GB": 13.68,
+                "reserved_GB": 23.16,
+                "total_GB": 31.47
+              }
+            },
+            "gpu_util": {
+              "GPU:0": {
+                "avg_util_pct": 17.8,
+                "max_util_pct": 57
+              }
+            }
+          },
+          {
+            "batch_size": 16,
+            "oom": true,
+            "phase": "warmup"
+          }
+        ]
+      },
+      {
+        "label": "long   (~2048 tok)",
+        "target_input": 1980,
+        "max_new_tokens": 256,
+        "batch_sweeps": [
+          {
+            "batch_size": 1,
+            "oom": false,
+            "input_tokens": 2024,
+            "output_tokens_avg": 256.0,
+            "ttft_avg_s": 1.0358,
+            "ttft_std_s": 0.0117,
+            "e2e_avg_s": 29.0946,
+            "e2e_std_s": 0.0506,
+            "decode_avg_s": 28.0588,
+            "tok_per_s_avg": 9.1233,
+            "tok_per_s_std": 0.0115,
+            "gpu_memory": {
+              "GPU:0": {
+                "allocated_GB": 9.88,
+                "reserved_GB": 30.94,
+                "total_GB": 31.47
+              }
+            },
+            "gpu_util": {
+              "GPU:0": {
+                "avg_util_pct": 15.8,
+                "max_util_pct": 27
+              }
+            }
+          },
+          {
+            "batch_size": 2,
+            "oom": false,
+            "input_tokens": 2024,
+            "output_tokens_avg": 256.0,
+            "ttft_avg_s": 1.1297,
+            "ttft_std_s": 0.0089,
+            "e2e_avg_s": 45.5323,
+            "e2e_std_s": 0.3488,
+            "decode_avg_s": 44.4025,
+            "tok_per_s_avg": 11.53,
+            "tok_per_s_std": 0.0917,
+            "gpu_memory": {
+              "GPU:0": {
+                "allocated_GB": 11.13,
+                "reserved_GB": 30.94,
+                "total_GB": 31.47
+              }
+            },
+            "gpu_util": {
+              "GPU:0": {
+                "avg_util_pct": 17.3,
+                "max_util_pct": 36
+              }
+            }
+          },
+          {
+            "batch_size": 4,
+            "oom": false,
+            "input_tokens": 2024,
+            "output_tokens_avg": 256.0,
+            "ttft_avg_s": 1.3548,
+            "ttft_std_s": 0.0044,
+            "e2e_avg_s": 69.4423,
+            "e2e_std_s": 1.0747,
+            "decode_avg_s": 68.0874,
+            "tok_per_s_avg": 15.04,
+            "tok_per_s_std": 0.2364,
+            "gpu_memory": {
+              "GPU:0": {
+                "allocated_GB": 13.63,
+                "reserved_GB": 30.94,
+                "total_GB": 31.47
+              }
+            },
+            "gpu_util": {
+              "GPU:0": {
+                "avg_util_pct": 18.3,
+                "max_util_pct": 53
+              }
+            }
+          },
+          {
+            "batch_size": 8,
+            "oom": true,
+            "phase": "warmup"
+          }
+        ]
+      },
+      {
+        "label": "near-limit (~3584 tok)",
+        "target_input": 3500,
+        "max_new_tokens": 128,
+        "batch_sweeps": [
+          {
+            "batch_size": 1,
+            "oom": false,
+            "input_tokens": 3536,
+            "output_tokens_avg": 128.0,
+            "ttft_avg_s": 1.1068,
+            "ttft_std_s": 0.0045,
+            "e2e_avg_s": 15.1475,
+            "e2e_std_s": 0.0143,
+            "decode_avg_s": 14.0406,
+            "tok_per_s_avg": 9.1167,
+            "tok_per_s_std": 0.0058,
+            "gpu_memory": {
+              "GPU:0": {
+                "allocated_GB": 10.82,
+                "reserved_GB": 30.92,
+                "total_GB": 31.47
+              }
+            },
+            "gpu_util": {
+              "GPU:0": {
+                "avg_util_pct": 18.1,
+                "max_util_pct": 34
+              }
+            }
+          },
+          {
+            "batch_size": 2,
+            "oom": false,
+            "input_tokens": 3536,
+            "output_tokens_avg": 128.0,
+            "ttft_avg_s": 1.3062,
+            "ttft_std_s": 0.0086,
+            "e2e_avg_s": 23.516,
+            "e2e_std_s": 0.2353,
+            "decode_avg_s": 22.2099,
+            "tok_per_s_avg": 11.5267,
+            "tok_per_s_std": 0.1258,
+            "gpu_memory": {
+              "GPU:0": {
+                "allocated_GB": 13.0,
+                "reserved_GB": 30.92,
+                "total_GB": 31.47
+              }
+            },
+            "gpu_util": {
+              "GPU:0": {
+                "avg_util_pct": 16.7,
+                "max_util_pct": 19
+              }
+            }
+          },
+          {
+            "batch_size": 4,
+            "oom": true,
+            "phase": "warmup"
+          }
+        ]
+      }
+    ],
+    "gpu_memory_final": {
+      "GPU:0": {
+        "allocated_GB": 8.63,
+        "reserved_GB": 30.89,
+        "total_GB": 31.47
+      }
+    }
+  }
+]
